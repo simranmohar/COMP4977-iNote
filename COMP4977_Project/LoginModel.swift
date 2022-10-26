@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//  LoginModel.swift
 //  COMP4977_Project
 //
 //  Created by Simran Mohar on 2022-10-25.
@@ -13,10 +13,10 @@ struct User {
     let email: String
 }
 
-class LoginViewModel: ObservableObject {
+class LoginModel: ObservableObject {
     
-    @Published var email = "placeholder@gmail.com"
-    @Published var password = "PlaceholderPassword"
+    @Published var email = ""
+    @Published var password = ""
     @Published private var _currentUser: User? = nil
     @Published var hasError = false
     @Published var errorMessage = ""

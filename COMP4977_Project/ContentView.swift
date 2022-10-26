@@ -6,48 +6,29 @@
 //
 
 import SwiftUI
-import FirebaseDatabase
+import Firebase
+import UIKit
 
 struct ContentView: View {
-   let db = Database.database().reference()
-   
-   var body: some View {
-      
-       VStack {
-           Button("Save details") {
-             
-             let dateFormatter = DateFormatter()
-             dateFormatter.dateStyle = .short
-             dateFormatter.timeStyle = .long
-             
-             let newRef = db.child("HTGame").childByAutoId()
-             
-             db.child("something").child(newRef.key!).setValue([
-                "college": newRef.key,
-                "date-time": dateFormatter.string(from: Date())
-             ])
-          }
-          .padding()
-          .background(Color.purple)
-          .foregroundColor(.white)
-          .font(.title)
-      .cornerRadius(10)
-           Button("Read details") {
-              db.child("something").observeSingleEvent(of: .value, with:{ snapshot in
-                 guard let value = snapshot.value as? [String: Any] else {
-                    return
-                 }
-                 print("Value: \(value)")
-              })
-           }
-           .padding()
-           .background(Color.red)
-           .foregroundColor(.white)
-           .font(.title)
-           .cornerRadius(10)
 
-       }
-   }
+//    @State var moveToNextView = true
+//    @State var email = ""
+//    @State var password = ""
+//    @State var confirmPassword = ""
+
+    var body: some View {
+        NavigationView {
+            ZStack {
+                Color("BGColor")
+                    .ignoresSafeArea()
+                VStack {
+                    LoginView()
+                    //SignUpView()
+                    //IndexView()
+                }
+            }
+        }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

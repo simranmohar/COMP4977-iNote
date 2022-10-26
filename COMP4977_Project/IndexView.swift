@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct IndexView: View {
+    let userEmail: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            Color("BGColor")
+                .ignoresSafeArea()
+            Text("Welcome \(userEmail)!")
+                .foregroundColor(.white)
+                .fontWeight(.bold)
+                .font(.largeTitle)
+        }
     }
 }
 
 struct IndexView_Previews: PreviewProvider {
     static var previews: some View {
-        IndexView()
+        IndexView(userEmail: "Placeholder@gmail.com")
     }
 }

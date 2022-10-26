@@ -6,7 +6,9 @@ target 'COMP4977_Project' do
   use_frameworks!
 
   # Pods for COMP4977_Project
+  pod 'Firebase/Core'
+	pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
 end
-pod 'Firebase/Core'
-pod 'Firebase/Database'
+
