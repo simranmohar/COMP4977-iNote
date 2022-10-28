@@ -11,10 +11,6 @@ import UIKit
 
 struct ContentView: View {
 
-//    @State var moveToNextView = true
-//    @State var email = ""
-//    @State var password = ""
-//    @State var confirmPassword = ""
 
     var body: some View {
         NavigationView {
@@ -28,6 +24,7 @@ struct ContentView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 
