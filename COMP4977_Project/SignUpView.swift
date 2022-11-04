@@ -14,6 +14,8 @@ struct SignUpView: View {
     @State var email = ""
     @State var password = ""
     @State var confirmPassword = ""
+    @State var signUpProcessing = false
+    @State var signUpErrorMessage = ""
     
     var body: some View {
         ZStack {
@@ -82,15 +84,28 @@ struct SignUpView: View {
                     .background(Color.accentColor)
                     
                 }
-            }
+            }.alert("Error", isPresented: $signUpProcessing) {
+            } message: {
+            Text(signUpErrorMessage)
+        }
         }
         
     }
     func registerAccount() {
         Auth.auth().createUser(withEmail: email, password: password, completion: { result, err in
             if let err = err {
-                print("Failed due to error:", err)
+                signUpErrorMessage = err.localizedDescription
+                signUpProcessing = true
+                //print("Failed due to error:", err)
                 return
+            }
+            switch result {
+            case .none:
+                print("Could not create account.")
+                signUpProcessing = true
+            case .some(_):
+                print("user created!")
+                signUpProcessing = false
             }
             print("Successfully created account with ID: \(result?.user.uid ?? "")")
             
