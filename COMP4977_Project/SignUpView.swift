@@ -19,75 +19,83 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack {
-            Color("BGColor")
-                .ignoresSafeArea()
-            VStack {
-                Text("Registration")
-                    .font(.system(size:45))
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.white)
-                HStack {
-                    Image(systemName: "envelope.fill")
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                        .padding(.trailing, 4)
-                    TextField("Email", text: $email)
-                        .autocapitalization(.none)
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                }
-                .frame(width: 300, height: 50)
-                
-                Rectangle()
-                    .frame(width: 300, height: 1)
-                    .foregroundColor(.accentColor)
-                
-                HStack {
-                    Image(systemName: "key.fill")
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                        .padding(.trailing, 11)
-                    SecureField("Password", text: $password)
-                        .autocapitalization(.none)
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                }
-                .frame(width: 300, height: 50)
-                
-                Rectangle()
-                    .frame(width: 300, height: 1)
-                    .foregroundColor(.accentColor)
-                
-                HStack {
-                    Image(systemName: "key.fill")
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                        .padding(.trailing, 11)
-                    SecureField("Confirm Password", text: $confirmPassword)
-                        .autocapitalization(.none)
-                        .foregroundColor(.white)
-                        .font(.system(size: 25))
-                }
-                .frame(width: 300, height: 50)
-                
-                Rectangle()
-                    .frame(width: 300, height: 1)
-                    .foregroundColor(.accentColor)
-                
-                HStack {
-                    Button(action: { registerAccount() }) {
-                        Text("Sign up")
+            if #available(iOS 14.0, *) {
+                Color("BGColor")
+                    .ignoresSafeArea()
+            } else {
+                // Fallback on earlier versions
+            }
+            if #available(iOS 15.0, *) {
+                VStack {
+                    Text("Registration")
+                        .font(.system(size:45))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.white)
+                    HStack {
+                        Image(systemName: "envelope.fill")
                             .foregroundColor(.white)
-                            .fontWeight(.bold)
+                            .font(.system(size: 25))
+                            .padding(.trailing, 4)
+                        TextField("Email", text: $email)
+                            .autocapitalization(.none)
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
                     }
-                    .frame(width: 100, height: 50)
-                    .background(Color.accentColor)
+                    .frame(width: 300, height: 50)
                     
+                    Rectangle()
+                        .frame(width: 300, height: 1)
+                        .foregroundColor(.accentColor)
+                    
+                    HStack {
+                        Image(systemName: "key.fill")
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                            .padding(.trailing, 11)
+                        SecureField("Password", text: $password)
+                            .autocapitalization(.none)
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                    }
+                    .frame(width: 300, height: 50)
+                    
+                    Rectangle()
+                        .frame(width: 300, height: 1)
+                        .foregroundColor(.accentColor)
+                    
+                    HStack {
+                        Image(systemName: "key.fill")
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                            .padding(.trailing, 11)
+                        SecureField("Confirm Password", text: $confirmPassword)
+                            .autocapitalization(.none)
+                            .foregroundColor(.white)
+                            .font(.system(size: 25))
+                    }
+                    .frame(width: 300, height: 50)
+                    
+                    Rectangle()
+                        .frame(width: 300, height: 1)
+                        .foregroundColor(.accentColor)
+                    
+                    HStack {
+                        Button(action: { registerAccount() }) {
+                            Text("Sign up")
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
+                        }
+                        .frame(width: 100, height: 50)
+                        .background(Color.accentColor)
+                        
+                    }
+                }.alert("Error", isPresented: $signUpProcessing) {
+                } message: {
+                    Text(signUpErrorMessage)
                 }
-            }.alert("Error", isPresented: $signUpProcessing) {
-            } message: {
-            Text(signUpErrorMessage)
-        }
+            } else {
+                // Fallback on earlier versions
+            }
         }
         
     }

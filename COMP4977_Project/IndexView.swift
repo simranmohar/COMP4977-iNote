@@ -13,7 +13,7 @@ struct IndexView: View {
         
         VStack {
             Color("BGColor")
-                .ignoresSafeArea()
+//                .ignoresSafeArea()
             Text("Welcome \(userEmail)!")
                 .foregroundColor(.white)
                 .fontWeight(.bold)

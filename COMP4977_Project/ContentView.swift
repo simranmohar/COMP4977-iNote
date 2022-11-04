@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 import UIKit
 
+@available(iOS 14.0, *)
 struct ContentView: View {
 
 
@@ -30,7 +31,11 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        if #available(iOS 14.0, *) {
+            ContentView()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 
