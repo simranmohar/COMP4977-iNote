@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>665887953098-op9dt2arr2tbbui00mtp94csbn12ukeo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.665887953098-op9dt2arr2tbbui00mtp94csbn12ukeo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAB4HrcGEtjmKY8ObpUA_DiHpplUqGAF0M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>665887953098</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ca.bcit.COMP4977-Project</string>
+	<key>PROJECT_ID</key>
+	<string>comp4977-inote</string>
+	<key>STORAGE_BUCKET</key>
+	<string>comp4977-inote.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:665887953098:ios:3bf1d9e47519bc35d62433</string>
+	<key>DATABASE_URL</key>
+	<string>https://comp4977-inote-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
